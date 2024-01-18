@@ -7,8 +7,8 @@ class Solution {
         int basketIdx = 2;
         int cnt = 0;
         for (int a =0; a<moves.length;a++) {
-            //moves의 인덱스 값을 하나씩 가져온다
-            //그 인덱스 값(m)이 board의 col이 된다.
+            //moves 값을 하나씩 가져온다
+            //그 값(m)이 board의 col이 된다.
             int m = moves[a]-1;
             int doll=0;
             for (int i = 0; i<n; i++) {
@@ -22,10 +22,11 @@ class Solution {
         if (doll != 0) {
             basket[basketIdx]=doll;
             basketIdx++;
-        }
-        if (basket[basketIdx]==basket[basketIdx-1]) {
+        
+        if (basket[basketIdx-1]==basket[basketIdx-2]) {
             basketIdx -=2;
             cnt++;
+        }
          }
         }
     
