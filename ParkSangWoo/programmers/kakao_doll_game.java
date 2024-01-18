@@ -1,21 +1,20 @@
 class Solution {
     public int solution(int[][] board, int[] moves) {
         int answer = 0;
-        
-    
+
         int n = board.length;
-        int [] basket = new int[moves.length+1];
-        int basketIdx = 1;
+        int [] basket = new int[moves.length+2];
+        int basketIdx = 2;
         int cnt = 0;
         for (int a =0; a<moves.length;a++) {
             //moves의 인덱스 값을 하나씩 가져온다
             //그 인덱스 값(m)이 board의 col이 된다.
-            int m = moves[a]-1
+            int m = moves[a]-1;
             int doll=0;
             for (int i = 0; i<n; i++) {
                 //m열의 데이터를 0행부터 n-1 행까지 본다.
                 if (board[i][m]!= 0){
-                    int doll = board[i][m];
+                    doll = board[i][m];
                     board[i][m]= 0;
                     break;
                 } 
@@ -24,13 +23,13 @@ class Solution {
             basket[basketIdx]=doll;
             basketIdx++;
         }
-            if (basket[basketIdx]==basket[basketIdx-1]) {
-                
-                cnt++;
-            }
+        if (basket[basketIdx]==basket[basketIdx-1]) {
+            basketIdx -=2;
+            cnt++;
+         }
         }
     
-    
+    answer = cnt*2;
     return answer;
     }
 }
