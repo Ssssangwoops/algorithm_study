@@ -2,6 +2,7 @@ class Solution {
     public int solution(int[][] board, int[] moves) {
         int answer = 0;
 
+        
         int n = board.length;
         int [] basket = new int[moves.length+2];
         int basketIdx = 2;
